@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
 
-name: app
+name: update-app
 jobs:
   render:
     name: update-shinyapp
@@ -19,8 +19,6 @@ jobs:
             any::rsconnect
             local::.
       - name: Deploy shinyapps
-        shell: Rscript {0}
-      - name: Execute Script
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"

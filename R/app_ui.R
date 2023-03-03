@@ -25,7 +25,9 @@ app_ui <- function() {
           ),
           shiny::actionButton("add_panel", "Adicionar pergunta"),
           shiny::actionButton("gerar_js", "Gerar Quiz"),
-          shiny::textOutput("json")
+          rclipboard::rclipboardSetup(),
+          shiny::textOutput("json"),
+          shiny::uiOutput("clip")
         )
       )
     )

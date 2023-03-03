@@ -12,7 +12,7 @@ gerar_json <- function(i, input) {
 }
 
 gerar_json_ <- function(questao, opcoes, correto, txt_correto, txt_errado) {
-  teste <- list(
+  list(
     q = questao,
     options = as.character(opcoes),
     correctIndex = jsonlite::unbox(correto),

@@ -74,7 +74,7 @@ app_server <- function(input, output, session) {
       json,
       "  ]\n",
       "});\n",
-,      "function copyToClipboard(element) {\n",
+      "function copyToClipboard(element) {\n",
       " var $temp = $(\"<textarea>\");\n",
       " var $mess = $(\"#quiz-results\");\n",
       " var $tit = $(\".post-title\");\n",

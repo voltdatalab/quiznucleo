@@ -12,10 +12,10 @@ Imports:
     bslib (>= 0.4.2.9000),
     jsonlite,
     purrr,
+    rclipboard,
     shiny,
-    shinyWidgets,
     stringr
 URL: https://github.com/voltdatalab/quiznucleo
 BugReports: https://github.com/voltdatalab/quiznucleo/issues
-Remotes:  
+Remotes:
     rstudio/bslib

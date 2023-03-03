@@ -88,8 +88,8 @@ app_server <- function(input, output, session) {
       " //$mess.remove();\n}</script>"
     )
 
-    output$clip <- renderUI({
-      output$clip <- renderUI({
+    output$clip <- shiny::renderUI({
+      output$clip <- shiny::renderUI({
         rclipboard::rclipButton(
           inputId = "clipbtn",
           label = "Copiar",

@@ -1,0 +1,1 @@
+shiny::shinyApp(quiznucleo:::app_ui(), quiznucleo:::app_server)

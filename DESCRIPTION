@@ -1,0 +1,17 @@
+Package: quiznucleo
+Title: Generates json for Codepen
+Version: 0.0.0.9000
+Authors@R:
+    person("Renata", "Hirota", , "re.hirota@gmail.com", role = c("aut", "cre"))
+Description: Shinyapp for generating json intended for Codepen.io.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports:
+    bslib,
+    jsonlite,
+    purrr,
+    shiny,
+    shinyWidgets,
+    stringr

@@ -17,6 +17,7 @@ jobs:
         with:
           extra-packages: |
             any::rcmdcheck
+            any::rsconnect
             local::.
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")

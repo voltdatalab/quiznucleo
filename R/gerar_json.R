@@ -3,7 +3,7 @@ gerar_json <- function(i, input) {
     input[[paste0("q", i)]],
     c(
       input[[paste0("q", i, "_opt1")]], input[[paste0("q", i, "_opt2")]],
-      input[[paste0("q", i, "_opt3")]]
+      input[[paste0("q", i, "_opt3")]], input[[paste0("q", i, "_opt4")]]
     ),
     as.numeric(input[[paste0("q", i, "_correta")]]) - 1,
     input[[paste0("q", i, "_output_correto")]],

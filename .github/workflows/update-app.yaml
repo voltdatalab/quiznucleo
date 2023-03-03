@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
 
-name: app
+name: update-app
 jobs:
   render:
     name: update-shinyapp

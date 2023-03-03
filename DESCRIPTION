@@ -15,3 +15,5 @@ Imports:
     shiny,
     shinyWidgets,
     stringr
+URL: https://github.com/voltdatalab/quiznucleo
+BugReports: https://github.com/voltdatalab/quiznucleo/issues

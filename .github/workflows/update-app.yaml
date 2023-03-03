@@ -18,8 +18,6 @@ jobs:
           extra-packages: |
             any::rcmdcheck
             local::.
-        run: |
-          devtools::install_github("abjur/obsFase3", force = TRUE)
         shell: Rscript {0}
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")

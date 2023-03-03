@@ -18,7 +18,8 @@ app_ui <- function() {
               shiny::textInput("q01_opt1", "Resposta 1"),
               shiny::textInput("q01_opt2", "Resposta 2"),
               shiny::textInput("q01_opt3", "Resposta 3"),
-              shiny::selectInput("q01_correta", "Resposta correta", 1:3),
+              shiny::textInput("q01_opt4", "Resposta 4"),
+              shiny::selectInput("q01_correta", "Resposta correta", 1:4),
               shiny::textInput("q01_output_correto", "Output correto"),
               shiny::textInput("q01_output_errado", "Output errado")
             )

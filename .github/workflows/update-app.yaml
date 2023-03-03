@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
 
-name: update-app
+name: app
 jobs:
   render:
     name: update-shinyapp
@@ -18,6 +18,7 @@ jobs:
           extra-packages: |
             any::rsconnect
             local::.
+      - name: Deploy shinyapps
         shell: Rscript {0}
       - name: Execute Script
         run: |

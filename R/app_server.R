@@ -7,44 +7,67 @@ app_server <- function(input, output, session) {
 
   count_perguntas <- 1
 
+  output$q01_opt_correto <- shiny::renderUI({
+    n_respostas <- as.numeric(input$add)
+    shiny::selectInput("q01_correta", "Resposta correta", 1:n_respostas)
+  })
+
   shiny::observeEvent(input$add_panel, {
 
     count_perguntas <<- count_perguntas + 1
+    n_q <- paste0("q", stringr::str_pad(count_perguntas, 2, pad = 0))
 
     bslib::accordion_panel_insert(
       "perguntas",
       bslib::accordion_panel(
         paste("Pergunta", count_perguntas),
-        shiny::textInput(
-          paste0("q", stringr::str_pad(count_perguntas, 2, pad = 0)),
-          "Texto da pergunta"
-        ),
-        shiny::textInput(
-          paste0("q", stringr::str_pad(count_perguntas, 2, pad = 0), "_opt1"),
-          "Resposta 1"
-        ),
-        shiny::textInput(
-          paste0("q", stringr::str_pad(count_perguntas, 2, pad = 0), "_opt2"),
-          "Resposta 2"
-        ),
-        shiny::textInput(
-          paste0("q", stringr::str_pad(count_perguntas, 2, pad = 0), "_opt3"),
-          "Resposta 3"
-        ),
-        shiny::textInput(
-          paste0("q", stringr::str_pad(count_perguntas, 2, pad = 0), "_opt4"),
-          "Resposta 4"
-        ),
-        shiny::selectInput(paste0(
-          "q", stringr::str_pad(count_perguntas, 2, pad = 0), "_correta"
-        ), "Resposta correta", 1:4),
-        shiny::textInput(paste0(
-          "q", stringr::str_pad(count_perguntas, 2, pad = 0), "_output_correto"
-        ), "Output correto"),
-        shiny::textInput(paste0(
-          "q", stringr::str_pad(count_perguntas, 2, pad = 0), "_output_errado"
-        ), "Output errado")
+        shiny::textInput(n_q, "Texto da pergunta"),
+        shiny::actionButton(paste0(n_q, "_add"), "Adicionar resposta"),
+        shiny::selectInput(paste0(n_q, "_correta"), "Resposta correta", 1),
+        shiny::uiOutput(paste0(n_q, "resp")),
+        shiny::textInput(paste0(n_q, "_output_correto"), "Output correto"),
+        shiny::textInput(paste0(n_q, "_output_errado"), "Output errado"),
       )
+    )
+
+    shiny::observeEvent(input[[paste0(n_q, "_add")]], {
+      shiny::insertUI(
+        selector = paste0("#", n_q, "_add"),
+        where = "beforeBegin",
+        ui = shiny::tagList(
+          shiny::textInput(
+            paste0(n_q,"_opt", input[[paste0(n_q, "_add")]]),
+            paste("Resposta", input[[paste0(n_q, "_add")]])
+          )
+        )
+      )
+    })
+    shiny::observeEvent(input[[paste0(n_q, "_add")]], {
+      shiny::updateSelectInput(
+        inputId = paste0(n_q, "_correta"),
+        choices = 1:as.numeric(input[[paste0(n_q, "_add")]])
+      )
+    })
+
+  })
+
+
+
+  shiny::observeEvent(input$add, {
+    n_q <- paste0("q", stringr::str_pad(count_perguntas, 2, pad = 0))
+    shiny::insertUI(
+      selector = "#add",
+      where = "beforeBegin",
+      ui = shiny::textInput(
+        paste0(n_q, "opt", input$add), paste("Resposta", input$add)
+      )
+    )
+  })
+
+  shiny::observeEvent(input$add, {
+    shiny::updateSelectInput(
+      inputId = "q01_correta",
+      choices = 1:as.numeric(input$add)
     )
   })
 

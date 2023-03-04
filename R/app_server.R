@@ -83,7 +83,7 @@ app_server <- function(input, output, session) {
       purrr::map_chr(gerar_json, input = input) |>
       paste(collapse = ",\n")
 
-    json_quiz <- paste0(
+    json <- paste0(
       "<div id=\"quiz\">",
       "  <div id=\"quiz-start-screen\">",
       "    <p><a href=\"#\" id=\"quiz-start-btn\" ",

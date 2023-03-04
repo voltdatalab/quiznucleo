@@ -51,8 +51,6 @@ app_server <- function(input, output, session) {
 
   })
 
-
-
   shiny::observeEvent(input$add, {
     n_q <- paste0("q", stringr::str_pad(count_perguntas, 2, pad = 0))
     shiny::insertUI(

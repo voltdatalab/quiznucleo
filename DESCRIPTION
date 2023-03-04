@@ -13,6 +13,7 @@ Imports:
     jsonlite,
     purrr,
     rclipboard,
+    sass,
     shiny,
     stringr
 URL: https://github.com/voltdatalab/quiznucleo

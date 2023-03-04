@@ -59,7 +59,7 @@ app_server <- function(input, output, session) {
       selector = "#add",
       where = "beforeBegin",
       ui = shiny::textInput(
-        paste0(n_q, "opt", input$add), paste("Resposta", input$add)
+        paste0(n_q, "_opt", input$add), paste("Resposta", input$add)
       )
     )
   })
@@ -83,7 +83,7 @@ app_server <- function(input, output, session) {
       purrr::map_chr(gerar_json, input = input) |>
       paste(collapse = ",\n")
 
-    json <- paste0(
+    json_quiz <- paste0(
       "<div id=\"quiz\">",
       "  <div id=\"quiz-start-screen\">",
       "    <p><a href=\"#\" id=\"quiz-start-btn\" ",
